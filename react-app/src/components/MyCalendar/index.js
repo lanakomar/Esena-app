@@ -14,7 +14,7 @@ const MyCalendar = () => {
   const tasksObj = useSelector((state) => state.tasks);
 
   const [events, setEvents] = useState([]);
-  const [selectedView, setSelectedView] = useState("month");
+  const [selectedView, setSelectedView] = useState("agenda");
   const [showModal, setShowModal] = useState(false);
   const [clickedTaskId, setClickedTaskId] = useState();
 
@@ -25,7 +25,9 @@ const MyCalendar = () => {
       3: "rgba(245, 189, 191, 0.4)",
     };
     let allTasks = Object.values(tasksObj);
-    allTasks = allTasks?.filter((task) => task.assignee_id == sessionUser?.id);
+    allTasks = allTasks?.filter(
+      (task) => task.assignee_id === +sessionUser?.id
+    );
     const eventsArr = allTasks?.map((task) => {
       const start = new Date(task.create_date);
       start.setHours(8);
@@ -35,13 +37,13 @@ const MyCalendar = () => {
         id: task.id,
         startAt: start.toISOString(),
         endAt: end.toISOString(),
-        summary: task.name,
+        summary: selectedView === "agenda" ? `${task.name}, Day ` : task.name,
         color: colors[task.priority_id],
         timezoneStartAt: "America/Los_Angeles",
       };
     });
     setEvents(eventsArr);
-  }, [tasksObj, sessionUser]);
+  }, [tasksObj, sessionUser, selectedView]);
 
   const onSelectView = (view) => {
     setSelectedView(view);
@@ -51,6 +53,9 @@ const MyCalendar = () => {
     setClickedTaskId(task.id);
     setShowModal(true);
   };
+
+  console.log("selectedView", selectedView);
+  console.log("events", events);
 
   return (
     <div className="calendar-page-container">
