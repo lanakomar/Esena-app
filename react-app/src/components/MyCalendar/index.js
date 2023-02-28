@@ -6,8 +6,8 @@ import TaskModal from "../TaskModal/TaskModal";
 import SideBar from "../SideBar";
 import "./index.css";
 
-import Kalend, { CalendarView } from "kalend"; // import component
-import "kalend/dist/styles/index.css"; // import styles
+import Kalend, { CalendarView } from "kalend";
+import "kalend/dist/styles/index.css";
 
 const MyCalendar = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -48,7 +48,6 @@ const MyCalendar = () => {
   };
 
   const handleEventClick = (task) => {
-    console.log("??????????", task);
     setClickedTaskId(task.id);
     setShowModal(true);
   };
