@@ -2,11 +2,28 @@
   width: 85%;
   position: relative;
   left: 256px;
-  height: auto;
+  height: fit-content;
 }
 
 .calendar-container.month-view {
   height: 100vh;
+}
+
+.Kalend__CalendarHeader-tall .Kalend__CalendarHeaderEvents__container,
+.Kalend__CalendarHeader-tall-day .Kalend__CalendarHeaderEvents__container {
+  height: 700px !important;
+  gap: 5px;
+}
+
+.Kalend__CalendarHeader-tall
+  .Kalend__button.Kalend__Event-header.Kalend__ButtonBase,
+.Kalend__CalendarHeader-tall-day
+  .Kalend__button.Kalend__Event-header.Kalend__ButtonBase {
+  height: 35px !important;
+  position: static !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 0 !important;
 }
 
 .eventTitle,
