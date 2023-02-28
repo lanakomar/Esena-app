@@ -240,11 +240,12 @@ A user can edit their profile by clicking "My Profile" on the navigation bar, wh
 ## Calendar
 A user can view all of the tasks on a calendar.
 
-   * Clicking "My Calendar" with display a calander and users can view tasks by Month, Day, Year
+   * Clicking "My Calendar" with display a calander and users can view tasks as an Agenda or by Month, Week, Day
 
-![Month](https://user-images.githubusercontent.com/92604480/172027660-9125fcf6-e637-4b4d-a90e-795d55f3176b.png)</br>
-![Day](https://user-images.githubusercontent.com/92604480/172027671-974c72c5-5946-416a-9e49-e4bae833c44a.png)</br>
-![Year](https://user-images.githubusercontent.com/92604480/172027686-789e83c3-3341-44db-b351-32a2bb0f900c.png)
+![Agenda](https://user-images.githubusercontent.com/97191078/221991614-1614210e-d8c0-4007-81eb-b929af861e57.png)</br>
+![Month](https://user-images.githubusercontent.com/97191078/221992166-bfcd12d3-fe94-480a-81b6-c70bf6395c16.png)</br>
+![Week](https://user-images.githubusercontent.com/97191078/221992287-8049a6dd-8fd4-4de2-a43b-e4160c37aa31.png)</br>
+![Day](https://user-images.githubusercontent.com/97191078/221992392-9781c94d-4a93-4689-b862-be2d498724bc.png)
 ## Comments on tasks
 Whether the user is on the homepage or on "My Tasks" page, they are able to post, edit and delete a comment on a task
 
