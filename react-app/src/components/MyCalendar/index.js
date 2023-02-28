@@ -53,8 +53,6 @@ const MyCalendar = () => {
     setShowModal(true);
   };
 
-  console.log("!!!!!!!!!!", events);
-
   return (
     <div className="calendar-page-container">
       <SideBar />
