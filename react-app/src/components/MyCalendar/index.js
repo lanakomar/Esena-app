@@ -1,35 +1,70 @@
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
-import Calendar from "react-awesome-calendar";
+import { Modal } from "../../context/Modal";
+import TaskModal from "../TaskModal/TaskModal";
 import SideBar from "../SideBar";
 import "./index.css";
+
+import Kalend, { CalendarView } from "kalend";
+import "kalend/dist/styles/index.css";
 
 const MyCalendar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const tasksObj = useSelector((state) => state.tasks);
-  let allTasks = Object.values(tasksObj);
-  allTasks = allTasks?.filter((task) => task.assignee_id == sessionUser?.id);
 
-  const colors = {
-    1: "rgba(186, 207, 249, 0.4)",
-    2: "rgba(239, 221, 211, 0.4)",
-    3: "rgba(245, 189, 191, 0.4)",
+  const [events, setEvents] = useState([]);
+  const [selectedView, setSelectedView] = useState("agenda");
+  const [showModal, setShowModal] = useState(false);
+  const [clickedTaskId, setClickedTaskId] = useState();
+
+  useEffect(() => {
+    const colors = {
+      1: "rgba(186, 207, 249, 0.4)",
+      2: "rgba(239, 221, 211, 0.4)",
+      3: "rgba(245, 189, 191, 0.4)",
+    };
+    let allTasks = Object.values(tasksObj);
+    allTasks = allTasks?.filter(
+      (task) => task.assignee_id === +sessionUser?.id
+    );
+    const eventsArr = allTasks?.map((task) => {
+      const start = new Date(task.create_date);
+      start.setHours(8);
+      const end = new Date(task.end_date);
+      end.setHours(19);
+      return {
+        id: task.id,
+        startAt: start.toISOString(),
+        endAt: end.toISOString(),
+        summary: selectedView === "agenda" ? `${task.name}, Day ` : task.name,
+        color: colors[task.priority_id],
+        timezoneStartAt: "America/Los_Angeles",
+      };
+    });
+    setEvents(eventsArr);
+  }, [tasksObj, sessionUser, selectedView]);
+
+  const onSelectView = (view) => {
+    setSelectedView(view);
   };
 
-  const events = allTasks?.map((task) => ({
-    id: task.id,
-    color: colors[task.priority_id],
-    from: task.create_date,
-    to: task.end_date,
-    title: task.name,
-  }));
+  const handleEventClick = (task) => {
+    setClickedTaskId(task.id);
+    setShowModal(true);
+  };
+
+  console.log("selectedView", selectedView);
+  console.log("events", events);
 
   return (
-    <div>
+    <div className="calendar-page-container">
       <SideBar />
-      <div className="calendar-container">
-        <Calendar events={events} />
-      </div>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <TaskModal taskId={clickedTaskId} />
+        </Modal>
+      )}
       <div className="calendar-legend">
         <div className="color-box-container">
           <div className="color-box-low"></div>
@@ -43,6 +78,22 @@ const MyCalendar = () => {
           <div className="color-box-high"></div>
           <div className="color-box-label">High Priority</div>
         </div>
+      </div>
+      <div
+        className={
+          selectedView === "month"
+            ? "calendar-container month-view"
+            : "calendar-container"
+        }
+      >
+        <Kalend
+          events={events}
+          initialView={CalendarView.AGENDA}
+          initialDate={new Date().toISOString()}
+          disabledViews={[CalendarView.THREE_DAYS]}
+          onSelectView={onSelectView}
+          onEventClick={(task) => handleEventClick(task)}
+        />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const About = () => {
     <>
       <div className="developers-container">
         <NavLink to="/">
-          <img src={logo} class="about-logo" />
+          <img src={logo} className="about-logo" alt="esena-logo" />
         </NavLink>
         <h1>Thanks for visiting esena.</h1>
         <div className="paragraph-container">
@@ -23,27 +23,54 @@ const About = () => {
           <p>Technologies used:</p>
         </div>
         <div className="technologies-container">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            alt="react-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+            alt="redux-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+            alt="nodejs-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+            alt="flask-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"
+            alt="sqlalchemy-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            alt="python-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            alt="javascript-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="github-icon"
+          />
 
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+            alt="docker-icon"
+          />
         </div>
         <div className="inner-dev-container">
           <div className="dev-profile">
-            <img className="dev-img" src={ethan} />
+            <img className="dev-img" src={ethan} alt="Ethan Chen" />
             <h3 className="dev-name">Ethan Chen</h3>
             {/* <p className="dev-area">Los Angeles, California</p> */}
             <div className="logo-container">
@@ -56,7 +83,7 @@ const About = () => {
             </div>
           </div>
           <div className="dev-profile">
-            <img className="dev-img" src={lana} />
+            <img className="dev-img" src={lana} alt="Lana Komar" />
             <h3 className="dev-name">Lana Komar</h3>
             {/* <p className="dev-area">East Bay, California</p> */}
             <div className="logo-container">
@@ -69,7 +96,7 @@ const About = () => {
             </div>
           </div>
           <div className="dev-profile">
-            <img className="dev-img" src={vee} />
+            <img className="dev-img" src={vee} alt="Vee Alianza" />
             <h3 className="dev-name">Vee Alianza</h3>
             {/* <p className="dev-area">Eagle Mountain, Utah</p> */}
             <div className="logo-container">
@@ -82,7 +109,7 @@ const About = () => {
             </div>
           </div>
           <div className="dev-profile">
-            <img className="dev-img" src={xiaowen} />
+            <img className="dev-img" src={xiaowen} alt="Xiaowen Nie" />
             <h3 className="dev-name">Xiaowen Nie</h3>
             {/* <p className="dev-area">Sunnyvale, California</p> */}
             <div className="logo-container">
